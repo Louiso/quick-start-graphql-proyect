@@ -1,0 +1,25 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "apollo-server": "^2.4.2",
+    "apollo-server-express": "^2.4.2",
+    "bcrypt": "^3.0.4",
+    "express": "^4.16.4",
+    "graphql": "^14.1.1",
+    "graphql-tools": "^4.0.4",
+    "mkdirp": "^0.5.1",
+    "mongoose": "^5.4.14",
+    "mongoose-unique-validator": "^2.0.2",
+    "morgan": "^1.9.1",
+    "shortid": "^2.2.14"
+  },
+  "scripts": {
+    "start": "fuser -k 4000/tcp && nodemon src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.10"
+  }
+}
