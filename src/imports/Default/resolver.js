@@ -1,19 +1,6 @@
-const mongoose = require('mongoose');
-const _ = require('lodash');
-const bcrypt = require('bcrypt');
-
 const { GraphQLUpload } = require('graphql-upload');
-const { PubSub } = require('apollo-server');
 
-const pubsub = new PubSub();
-
-const ErrorResponse = require('./imports/ErrorResponse');
-const File = require('./imports/File');
-
-
-module.exports.pubsub = pubsub;
-
-const Init = {
+const Default = {
   Query: {
     holaMundo: () => "Hola Mundo"
   },
@@ -35,12 +22,13 @@ const Init = {
         return pubsub.asyncIterator(['ADDED_MESSAGE'])
       }
     }
+  },
+
+  Response: {
+    __resolveType(obj, context , info) {
+      return null;
+    }
   }
 }
 
-const resolvers = _.merge(
-  Init,
-  ErrorResponse,
-  File
-);
-module.exports = resolvers;
+module.exports = Default;
